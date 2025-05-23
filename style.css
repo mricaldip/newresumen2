@@ -1,0 +1,443 @@
+/* ===== Base Styles ===== */
+:root {
+  /* US Palette Colors */
+  --light-green: #2ecc71;
+  --dark-green: #27ae60;
+  --light-blue: #3498db;
+  --dark-blue: #2980b9;
+  --light-purple: #9b59b6;
+  --dark-purple: #8e44ad;
+  --light-red: #e74c3c;
+  --dark-red: #c0392b;
+  --light-orange: #e67e22;
+  --dark-orange: #d35400;
+  --light-gray: #ecf0f1;
+  --dark-gray: #bdc3c7;
+  --midnight-blue: #2c3e50;
+  --wet-asphalt: #34495e;
+  --clouds: #ecf0f1;
+  --silver: #bdc3c7;
+  --concrete: #95a5a6;
+  --asbestos: #7f8c8d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--clouds);
+  color: var(--midnight-blue);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== Header Styles ===== */
+header {
+  background: linear-gradient(135deg, var(--midnight-blue), var(--wet-asphalt));
+  color: white;
+  padding: 1.5rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  padding: 1rem 2rem;
+  background: rgba(44, 62, 80, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--light-green), var(--light-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.logo::before {
+  content: "MR";
+  display: inline-block;
+  background: linear-gradient(135deg, var(--light-green), var(--light-blue));
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 2rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--light-green);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--light-green);
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* ===== Main Content Styles ===== */
+main {
+  margin-top: 80px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  margin-bottom: 3rem;
+  animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Home Section ===== */
+#home {
+  padding: 2rem 0;
+}
+
+.passion-statement {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 3rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.passion-statement:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.passion-statement h2 {
+  color: var(--dark-blue);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.passion-statement h2::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background: linear-gradient(to right, var(--light-green), var(--light-blue));
+  bottom: -10px;
+  left: 0;
+  border-radius: 2px;
+}
+
+.passion-statement p {
+  margin-bottom: 1rem;
+  color: var(--wet-asphalt);
+}
+
+/* ===== Projects List ===== */
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  list-style: none;
+}
+
+.projects-list li {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-list li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 0;
+  background: linear-gradient(to bottom, var(--light-green), var(--light-blue));
+  transition: height 0.3s ease;
+}
+
+.projects-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.projects-list li:hover::before {
+  height: 100%;
+}
+
+.projects-list h3 {
+  color: var(--dark-blue);
+  margin-bottom: 0.5rem;
+}
+
+.projects-list h3 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.projects-list h3 a:hover {
+  color: var(--light-green);
+}
+
+.projects-list p {
+  color: var(--asbestos);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--light-blue);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.github-link:hover {
+  color: var(--dark-blue);
+}
+
+.github-link i {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* ===== Footer Styles ===== */
+footer {
+  background: linear-gradient(135deg, var(--midnight-blue), var(--wet-asphalt));
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+footer p {
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px);
+}
+
+.social-icons a:nth-child(1):hover {
+  color: #3b5998; /* Facebook blue */
+}
+
+.social-icons a:nth-child(2):hover {
+  color: #0077b5; /* LinkedIn blue */
+}
+
+.social-icons a:nth-child(3):hover {
+  color: #e4405f; /* Instagram pink */
+}
+
+.social-icons a:nth-child(4):hover {
+  color: #ff0000; /* YouTube red */
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  /* Laptop/Tablet styles */
+  main {
+    padding: 2rem 1.5rem;
+  }
+  
+  .projects-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  /* Tablet styles */
+  header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .logo {
+    margin-bottom: 1rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+  
+  main {
+    margin-top: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Smartphone styles */
+  .passion-statement {
+    padding: 1.5rem;
+  }
+  
+  .projects-list {
+    grid-template-columns: 1fr;
+  }
+  
+  footer {
+    padding: 1.5rem;
+  }
+  
+  .social-icons {
+    gap: 1rem;
+  }
+}
+
+/* ===== Animation Effects ===== */
+/* Pulse animation for interactive elements */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply pulse animation on hover for project cards */
+.projects-list li:hover {
+  animation: pulse 0.5s ease;
+}
+
+/* Floating animation for header */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Apply floating animation to logo */
+.logo:hover {
+  animation: float 2s ease-in-out infinite;
+}
+
+/* ===== Additional Professional Touches ===== */
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus {
+  outline: 3px solid var(--light-orange);
+  outline-offset: 3px;
+}
+
+/* Loading animation for content */
+.content-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.content-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
