@@ -170,6 +170,37 @@ document.addEventListener('DOMContentLoaded', function() {
     yearElement.textContent = new Date().getFullYear();
   }
 }
+    // Menu Hamburguesa
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+  
+  // Desplazamiento suave para los enlaces del menú
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      menuToggle.classList.remove('active');
+        });
+     });
+    });
+    // Cerrar menú al presionar Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+    navMenu.classList.remove('active');
+    menuToggle.classList.remove('active');
+  }
+});
+
+// Cerrar menú al hacer clic fuera
+document.addEventListener('click', (e) => {
+  if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+    navMenu.classList.remove('active');
+    menuToggle.classList.remove('active');
+  }
+});
 
   // Start the app
   init();
